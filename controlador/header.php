@@ -6,9 +6,11 @@ if (isset($_SESSION['usuario']) && ($_SESSION['usuario']!='') &&
 isset($_SESSION['ide']) &&($_SESSION['ide']!='') && 
 isset($_SESSION['acceso'])
 ) {
-    echo 1;
+    require('../includes/header.php');
+
 }
 else{
-    echo 0;
+    require('../includes/header.php');
+
 }
 ?>

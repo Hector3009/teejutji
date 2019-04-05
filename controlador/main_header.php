@@ -4,11 +4,13 @@ if (!isset($_SESSION)) {
   }
 if (isset($_SESSION['usuario']) && ($_SESSION['usuario']!='') && 
 isset($_SESSION['ide']) &&($_SESSION['ide']!='') && 
-isset($_SESSION['acceso'])
+$_SESSION['acceso']==1
 ) {
-    echo 1;
+    require('../includes/admin/main_header.php');
+
 }
 else{
-    echo 0;
+    require('../includes/client/main_header.php');
+
 }
 ?>

@@ -309,7 +309,7 @@ textarea.input {
 }
 
 .section-title .section-nav {
-  float: left;
+  float: right;
 }
 
 .section-title .section-nav .section-tab-nav {
@@ -317,8 +317,8 @@ textarea.input {
 }
 
 .section-tab-nav li {
-  display: inline-flex;
-  margin: 20px;
+  display: inline-block;
+  margin-right: 15px;
 }
 
 .section-tab-nav li:last-child {
@@ -411,8 +411,8 @@ textarea.input {
 \*----------------------------*/
 
 #top-header {
-  padding-top: 0px;
-  padding-bottom: 0px;
+  padding-top: 10px;
+  padding-bottom: 10px;
   background-color: #1E1F29;
 }
 
@@ -444,14 +444,13 @@ textarea.input {
 \*----------------------------*/
 
 #header {
+  padding-top: 15px;
   padding-bottom: 15px;
   background-color: #15161D;
 }
 
-.img-logo{
-  margin-left: -50%;
-  width: 1400px;
-  height: 200px;
+.header-logo {
+  float: left;
 }
 
 .header-logo .logo img {
@@ -477,7 +476,7 @@ textarea.input {
 
 .header-search form .input {
   width: calc(100% - 260px);
-  margin-right: -45px;
+  margin-right: -4px;
 }
 
 .header-search form .search-btn {
@@ -496,7 +495,7 @@ textarea.input {
 
 .header-ctn {
   float: right;
-  padding: 15px 10000px;
+  padding: 15px 0px;
 }
 
 .header-ctn>div {
@@ -1219,7 +1218,6 @@ textarea.input {
   text-transform: uppercase;
   font-size: 18px;
   margin: 15px 0px 30px;
-
 }
 
 /*-- checkbox Filter --*/
@@ -2170,7 +2168,6 @@ textarea.input {
 @media only screen and (max-width: 767px) {
   .section-title .section-nav {
     float: none;
-    justify-content: center;
     margin-top: 10px;
   }
   .section-tab-nav li {

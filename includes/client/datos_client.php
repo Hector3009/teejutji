@@ -1,15 +1,10 @@
 
 <?php
 if (isset($consulta) && $consulta!=null) {
-	echo '							
-	<div class="products-tabs">
-	<!-- tab -->
-	<div id="tab2" class="tab-pane fade in active">
-		<div class="products-slick" data-nav="#slick-nav-2">
-';
+$contenedor='<div class="products-slick" data-nav="#slick-nav-1">';
    foreach ($consulta as $value) {
 	   $total=$value['precio']-($value['precio']*($value['descuento']/100));
-       echo  '
+       $contenedor.='
                                         <div class="product">
 											<div class="product-img">
 												<img src="'.$value['imagen'].'" alt="">
@@ -20,7 +15,7 @@ if (isset($consulta) && $consulta!=null) {
 											</div>
 											<div class="product-body">
 												
-												<h3 class="product-name"><a href="#">'.$value['nombre'].'</a></h3>
+												<h3 class="product-name"><a href="javascript:detalles('.$value['id'].');">'.$value['nombre'].'</a></h3>
 												<h4 class="product-price">$'.$total.' <del class="product-old-price">$'.$value['precio'].'</del></h4>
 												<div class="product-rating">
 													<i class="fa fa-star"></i>
@@ -37,29 +32,36 @@ if (isset($consulta) && $consulta!=null) {
 											</div>
 											<div class="add-to-cart">
 												<div class="btn-group-sm">
-												';?>
- 											<button data-opp=2 data-toggle="modal" data-target="#nuevo"
-											 data-id='<?php echo $value['id'] ?>'
-											 data-cat='<?php echo $value['categoria'] ?>'
-											 data-nom='<?php echo $value['nombre'] ?>'
-											 data-des='<?php echo $value['descripcion'] ?>'
-											 data-pre='<?php echo $value['precio'] ?>'
-											 data-can='<?php echo $value['cantidad'] ?>'
-											 data-desc='<?php echo $value['descuento'] ?>'
-											 class="btn btn-success"> Modificar</button>
-											<button data-toggle='modal' data-target='#eliminar' data-id='<?php echo $value['id'] ?>' class="btn btn-danger"> Eliminar</button>
-											<?php	
-												 echo '
+												<button class="add-to-cart-btn" onclick="javascript:detalles('.$value['id'].');"><i class="fa fa-shopping-cart"></i>Añadir a la Cesta</button>
 												</div>
 											</div>
 										</div>
        ';
    }
-   echo '									
-   </div>
-   <div id="slick-nav-2" class="products-slick-nav"></div>
-</div>
-</div>';
+   echo $contenedor.'</div>
+   <div id="slick-nav-1" class="products-slick-nav"></div>
+';
+ 
 }
 
 ?>
+
+<script>
+
+function detalles(id) {
+	$.ajax({
+        url:'controlador/detalles_producto.php',
+        type:'POST',
+		dataType:'html',
+        data:{
+			id:id
+		},
+        success:function (msj) {
+		$('#cont').html('');
+		  $('#detalles').html(msj);   
+		 // reload_d();   
+        }
+    }) 
+}
+
+</script>

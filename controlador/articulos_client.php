@@ -7,7 +7,7 @@ $Datos = array(
         if ($consulta=$objeto->consulta($Datos)) {
             $objeto->cerrar();
             
-            require_once('../includes/admin/datos.php');
+            require_once('../includes/client/datos_client.php');
         }
         else{
            // echo "eror de conexion";

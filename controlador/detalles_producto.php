@@ -1,14 +1,13 @@
 <?php
 include('../modelo/conexion.php');
 $Datos=Array(
-    'categoria'=>$_POST['categ'],
-    'patron'=>$_POST['busca'],
+    'id'=>$_POST['id'],
 );
 if ($objeto=new conexion()) {
-    if ($consulta=$objeto->busca_producto($Datos)) {
+    if ($value=$objeto->busca_producto_id($Datos)) {
         $objeto->cerrar();
         
-        require_once('../includes/admin/datos.php');
+        require_once('../includes/client/detalles_producto.php');
     }
     else{
        

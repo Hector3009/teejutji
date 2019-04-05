@@ -2,10 +2,10 @@
 -- version 4.8.3
 -- https://www.phpmyadmin.net/
 --
--- Servidor: localhost
--- Tiempo de generación: 27-03-2019 a las 14:18:12
--- Versión del servidor: 10.1.36-MariaDB
--- Versión de PHP: 7.2.10
+-- Host: localhost
+-- Generation Time: Apr 05, 2019 at 09:38 AM
+-- Server version: 10.1.36-MariaDB
+-- PHP Version: 7.2.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -19,13 +19,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de datos: `sistema`
+-- Database: `sistema`
 --
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `acceso`
+-- Table structure for table `acceso`
 --
 
 CREATE TABLE `acceso` (
@@ -34,7 +34,7 @@ CREATE TABLE `acceso` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Volcado de datos para la tabla `acceso`
+-- Dumping data for table `acceso`
 --
 
 INSERT INTO `acceso` (`id`, `nivel_acceso`) VALUES
@@ -44,19 +44,7 @@ INSERT INTO `acceso` (`id`, `nivel_acceso`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `archivos`
---
-
-CREATE TABLE `archivos` (
-  `id` int(11) NOT NULL,
-  `nombre_archivo` varchar(50) DEFAULT NULL,
-  `ruta` varchar(50) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `categorias`
+-- Table structure for table `categorias`
 --
 
 CREATE TABLE `categorias` (
@@ -65,7 +53,7 @@ CREATE TABLE `categorias` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Volcado de datos para la tabla `categorias`
+-- Dumping data for table `categorias`
 --
 
 INSERT INTO `categorias` (`id`, `nombre_categoria`) VALUES
@@ -77,18 +65,42 @@ INSERT INTO `categorias` (`id`, `nombre_categoria`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `imagenes`
+-- Table structure for table `estadoventas`
 --
 
-CREATE TABLE `imagenes` (
+CREATE TABLE `estadoventas` (
   `id` int(11) NOT NULL,
-  `id_producto` int(11) DEFAULT NULL
+  `estado` varchar(20) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `estadoventas`
+--
+
+INSERT INTO `estadoventas` (`id`, `estado`) VALUES
+(1, 'pendiente'),
+(2, 'entregado');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `pedidos`
+--
+
+CREATE TABLE `pedidos` (
+  `id` int(11) NOT NULL,
+  `usuario` int(11) DEFAULT NULL,
+  `direccion` varchar(50) DEFAULT NULL,
+  `ciudad` varchar(50) DEFAULT NULL,
+  `telefono` bigint(20) DEFAULT NULL,
+  `estado` int(11) DEFAULT NULL,
+  `nombre` varchar(30) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `productos`
+-- Table structure for table `productos`
 --
 
 CREATE TABLE `productos` (
@@ -102,17 +114,10 @@ CREATE TABLE `productos` (
   `descuento` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Volcado de datos para la tabla `productos`
---
-
-INSERT INTO `productos` (`id`, `nombre`, `descripcion`, `precio`, `cantidad`, `imagen`, `categoria`, `descuento`) VALUES
-(15, 'producto', 'produto ', 80, 90, 'images/producto/producto.png', 1, 20);
-
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `usuarios`
+-- Table structure for table `usuarios`
 --
 
 CREATE TABLE `usuarios` (
@@ -126,57 +131,51 @@ CREATE TABLE `usuarios` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Volcado de datos para la tabla `usuarios`
+-- Dumping data for table `usuarios`
 --
 
 INSERT INTO `usuarios` (`id`, `nombre`, `edad`, `correo`, `usuario`, `pass`, `acceso`) VALUES
-(2, 'adrian', 20, 'adri@gmail.com', 'adri', 'adrian', 1),
-(3, 'usuario', 10, 'usuario@gmail.com', 'usuario', 'usuario', 2),
-(4, 'asdf', 12, 'adfa', 'asdf', 'asdf', 2),
-(5, 'omar', 12, 'omar@hotmail.com', 'alfdj', 'lkadjf', 2),
-(7, 'lllll', 56, 'ytuy', 'ghfhgf', 'gfdgfd', 2),
-(8, 'pppp', 23, 'hgjh@hotmail.com', 'jhgjhg', 'jhgjh', 2),
-(9, 'omar', 56, 'styx@hotmail.com', 'styx', 'slakfd', 2),
-(12, 'omar', 56, 'styx@hotmail.com', 'styxx', 'omar', 2);
+(2, 'adrian', 20, 'adri@gmail.com', 'adri', 'adrian', 1);
 
 --
--- Índices para tablas volcadas
+-- Indexes for dumped tables
 --
 
 --
--- Indices de la tabla `acceso`
+-- Indexes for table `acceso`
 --
 ALTER TABLE `acceso`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `archivos`
---
-ALTER TABLE `archivos`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indices de la tabla `categorias`
+-- Indexes for table `categorias`
 --
 ALTER TABLE `categorias`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `imagenes`
+-- Indexes for table `estadoventas`
 --
-ALTER TABLE `imagenes`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `id_producto` (`id_producto`);
+ALTER TABLE `estadoventas`
+  ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `productos`
+-- Indexes for table `pedidos`
+--
+ALTER TABLE `pedidos`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `usuario` (`usuario`),
+  ADD KEY `estado` (`estado`);
+
+--
+-- Indexes for table `productos`
 --
 ALTER TABLE `productos`
   ADD PRIMARY KEY (`id`),
   ADD KEY `categoria` (`categoria`);
 
 --
--- Indices de la tabla `usuarios`
+-- Indexes for table `usuarios`
 --
 ALTER TABLE `usuarios`
   ADD PRIMARY KEY (`id`),
@@ -184,63 +183,58 @@ ALTER TABLE `usuarios`
   ADD KEY `acceso` (`acceso`);
 
 --
--- AUTO_INCREMENT de las tablas volcadas
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT de la tabla `acceso`
+-- AUTO_INCREMENT for table `acceso`
 --
 ALTER TABLE `acceso`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT de la tabla `archivos`
---
-ALTER TABLE `archivos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT de la tabla `categorias`
+-- AUTO_INCREMENT for table `categorias`
 --
 ALTER TABLE `categorias`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT de la tabla `imagenes`
+-- AUTO_INCREMENT for table `pedidos`
 --
-ALTER TABLE `imagenes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `pedidos`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
--- AUTO_INCREMENT de la tabla `productos`
+-- AUTO_INCREMENT for table `productos`
 --
 ALTER TABLE `productos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
--- AUTO_INCREMENT de la tabla `usuarios`
+-- AUTO_INCREMENT for table `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
 
 --
--- Restricciones para tablas volcadas
+-- Constraints for dumped tables
 --
 
 --
--- Filtros para la tabla `imagenes`
+-- Constraints for table `pedidos`
 --
-ALTER TABLE `imagenes`
-  ADD CONSTRAINT `imagenes_ibfk_1` FOREIGN KEY (`id_producto`) REFERENCES `producto` (`id`);
+ALTER TABLE `pedidos`
+  ADD CONSTRAINT `pedidos_ibfk_1` FOREIGN KEY (`usuario`) REFERENCES `usuarios` (`id`),
+  ADD CONSTRAINT `pedidos_ibfk_2` FOREIGN KEY (`estado`) REFERENCES `estadoventas` (`id`);
 
 --
--- Filtros para la tabla `productos`
+-- Constraints for table `productos`
 --
 ALTER TABLE `productos`
   ADD CONSTRAINT `productos_ibfk_1` FOREIGN KEY (`categoria`) REFERENCES `categorias` (`id`);
 
 --
--- Filtros para la tabla `usuarios`
+-- Constraints for table `usuarios`
 --
 ALTER TABLE `usuarios`
   ADD CONSTRAINT `usuarios_ibfk_1` FOREIGN KEY (`acceso`) REFERENCES `acceso` (`id`);

@@ -8,7 +8,7 @@ if ($objeto=new conexion()) {
     if ($consulta=$objeto->busca_producto($Datos)) {
         $objeto->cerrar();
         
-        require_once('../includes/admin/datos.php');
+        require_once('../includes/client/datos_client.php');
     }
     else{
        

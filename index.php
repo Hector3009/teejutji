@@ -1,6 +1,3 @@
-<?php
-
-?>
 <!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -9,7 +6,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		 <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
-		<title>OAXACA-ARTESANÍAS</title>
+		<title>Electro - HTML Ecommerce Template</title>
 
 		<!-- Google font -->
 		<link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700" rel="stylesheet">
@@ -20,7 +17,6 @@
 		<!-- Slick -->
 		<link type="text/css" rel="stylesheet" href="css/slick.css"/>
 		<link type="text/css" rel="stylesheet" href="css/slick-theme.css"/>
-		<link type="text/css" rel="stylesheet" href="css/style1.css"/>
 
 		<!-- nouislider -->
 		<link type="text/css" rel="stylesheet" href="css/nouislider.min.css"/>
@@ -40,36 +36,83 @@
 
     </head>
 	<body>
-	
-	
-	<?php
-	require('includes/header.php');
-	if (isset($_SESSION['usuario']) && ($_SESSION['usuario']!='') && 
-	isset($_SESSION['ide']) &&($_SESSION['ide']!='') && 
-	($_SESSION['acceso']==1)
-	){
-		include('includes/admin.php');
-	}
-	else{
-		include('includes/client.php');
-	}
-	?>
-		<!-- FOOTER -->
-		<?php
-	include('includes/footer.php');
-	?>
-		<!-- /FOOTER -->
+		<!-- HEADER -->
+		<header>
+			<!-- TOP HEADER -->
+			<div id="top_header">
+			</div>
+			<!-- /TOP HEADER -->
+			<!-- MAIN HEADER -->
+			<div id="main_header">
+			</div>
+			<!-- /MAIN HEADER -->
+		</header>
+		<!-- /HEADER -->
+            <div id='contenedor_principal'>
+
+            </div>
 
 		<!-- jQuery Plugins -->
-		
+		<script src="js/jquery.min.js"></script>
 		<script src="js/bootstrap.min.js"></script>
 		<script src="js/slick.min.js"></script>
 		<script src="js/nouislider.min.js"></script>
 		<script src="js/jquery.zoom.min.js"></script>
 		<script src="js/main.js"></script>
-
+		<script src="js/index.js"></script>
 	</body>
 </html>
-<?php 
+<script>
 
-?>
+$(document).ready(function () {
+	cargar_top_header();
+    cargar_main_header();
+    cargar_contenido();
+	 
+});
+function cargar_top_header() {
+    console.log('adsf');
+    $.ajax({
+        url:'controlador/top_header.php',
+        type:'POST',
+		dataType:'html',
+        data:{
+		},
+        success:function (msj) {
+
+		  $('#top_header').html(msj);   
+  
+        }
+    }) 
+}
+function cargar_main_header() {
+    $.ajax({
+        url:'controlador/main_header.php',
+        type:'POST',
+		dataType:'html',
+        data:{
+		},
+        success:function (msj) {
+
+		  $('#main_header').html(msj);   
+  
+        }
+    }) 
+}
+function cargar_contenido() {
+    $.ajax({
+        url:'controlador/container.php',
+        type:'POST',
+		dataType:'html',
+        data:{
+		},
+        success:function (msj) {
+
+		  $('#contenedor_principal').html(msj);   
+			reload_d();
+			reload();
+        }
+    })
+}
+
+</script>

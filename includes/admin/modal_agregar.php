@@ -175,7 +175,9 @@ if (band) {
                         setTimeout(() => {
                             $("#exi1").hide();
                         }, 2000);
-                        
+                        setTimeout(() => {
+                            $("#nuevo").modal('hide');
+                        }, 3000);
                         break;
                     default:
                     $("#exi1").hide();
@@ -193,7 +195,7 @@ $('#nuevo').on('hidden.bs.modal',function (event) {
       
         $(this).find('input,select,text').each(function () {
             this.value=this.defaultValue;
-            console.log(this.value)
+            console.log(this.value);
         });
       
     });
@@ -201,6 +203,7 @@ $('#nuevo').on('show.bs.modal', function (event) {
      let button=$(event.relatedTarget);
      let modal=$(this);
      modal.find('#pe').val(button.data('opp'));
+     console.log('sdfasdf');
      if ($('#pe').val()==2) {
         $("#filee").hide();
         document.getElementById('titulo').innerHTML='Actualizar Producto';

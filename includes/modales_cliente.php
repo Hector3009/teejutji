@@ -1,45 +1,3 @@
-<!-- Button trigger modal -->
-
-
-
-<!-- Modal -->
-<div class="modal fade" id="eliminar" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-                <div class="modal-header">
-                        <h5 class="modal-title">Eliminar Producto</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                    </div>
-            <div class="modal-body">
-                    <div id="eliminar_er" class="alert alert-danger fade in" style="display:none" >
-                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                            <span class="sr-only">Close</span>
-                        </button>
-                        <strong>Error</strong> Error Al Eliminar
-                    </div>
-                    <div id="eliminar_ex" class="alert alert-success fade in" style="display:none" >
-                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                            <span class="sr-only">Close</span>
-                        </button>
-                        <strong>Sucess</strong> Eliminado Correctamente
-                    </div>
-                <div class="container-fluid">
-                <label id='idee' name='idee'></label>
-                    ESTA SEGURO QUE DESEA ELIMINAR ESTE PRODUCTO
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-                <button id='eliminar_producto'type="button" class="btn btn-success">Save</button>
-            </div>
-        </div>
-    </div>
-</div>
-
-
-<!-- Modal -->
 <div class="modal fade" id="iniciar_seccion" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -147,39 +105,6 @@
 
 <script>
 
-$('#eliminar').on('show.bs.modal', function (event) {
-     let button=$(event.relatedTarget);
-     let modal=$(this);
-     modal.find('#idee').val(button.data('id'));  
-     console.log($("#idee").val());
- });
- $('#eliminar_producto').click(function () {
-    $.ajax({
-            url:'controlador/eliminar_producto.php',
-            type:'POST',
-            data:{
-                ide:$("#idee").val()
-            },
-            success:function (msj) {
-                console.log(msj);
-                switch (msj) {
-                    case '1':
-                        $("#eliminar_ex").show();
-                        $("#eliminar_er").hide();
-                        setTimeout(() => {
-                            $("#eliminar_ex").hide();
-                        }, 2000);
-                        
-                        break;
-                    default:
-                    $("#eliminar_ex").hide();
-                    $("#eliminar_er").show();
-                    break;
-                }
-               
-            }
-      });
- })
 $("#guardar").click(function () {
     exr=new RegExp("^[A-Z a-z \_]{1}[A-Z a-z 0-9 \_ \.]+@[A-Z a-z 0-9 \_ \.]+[\.]{1}[A-Z a-z 0-9 \_ \.]+$");
 
@@ -233,9 +158,7 @@ $("#guardar").click(function () {
                     case '1':
                         $("#exi").show();
                         $("#err").hide();
-                        setTimeout(() => {
-                            $("#registrarse").modal('hide');
-                        }, 1000);
+                        cerrar();
                         break;
                     default:
                     document.getElementById("err").innerHTML=msj;
@@ -315,4 +238,5 @@ $('#iniciar_seccion').on('hidden.bs.modal',function (event) {
         $("#eliminar_ex").hide();
         $("#eliminar_er").hide();
     });
+
 </script>

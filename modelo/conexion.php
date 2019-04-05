@@ -124,6 +124,19 @@ class conexion{
         return false;
 
     }
+
+    function busca_producto_id($Datos){
+        $query='';
+        //se refire a cargar productos de barro
+     $query_user='SELECT * FROM productos JOIN categorias WHERE(productos.categoria=categorias.id AND productos.id='.$Datos['id'].')';
+ 
+     if ($consulta=$this->conexion->query($query_user)) {    
+        if ($row=$consulta->fetch_assoc()) {
+            return $row;
+        }
+        return null;
+    }
+    }
     function eliminar_producto($Datos){
         $query='DELETE FROM `productos` WHERE (id ='.$Datos['id'].')';
         if ($this->conexion->query($query)) return true;
@@ -161,6 +174,41 @@ class conexion{
             rmdir($dir);
             return true;
 
+    }
+    function consulta_categoria(){
+        $query='';
+           //se refire a cargar productos de barro
+        $query='select * from categorias';
+    
+        if ($consulta=$this->conexion->query($query)) { 
+                
+                if ($consulta->num_rows>0) {
+                    while ($resultado=$consulta->fetch_array()) {
+                        $filas[]=$resultado;
+                    }
+                    return $filas;
+                 }  
+                 return null;
+            }
+            echo $this->conexion->error;
+            echo $query;
+            return null;
+    }
+    function busca_usuario($Datos){
+        $query_user='SELECT * FROM usuarios  WHERE(usuario="'.$Datos['user'].'")';
+        if ($consulta=$this->conexion->query($query_user)) {    
+           if ($row=$consulta->fetch_assoc()) {
+               return $row;
+           }
+           return null;
+       }
+    }
+    function registrar_venta($Datos){
+       $query='insert into pedidos (usuario,direccion,ciudad,telefono,estado,nombre)values
+               ('.$Datos['id'].',"'.$Datos['address'].'","'.$Datos['city'].'",'.$Datos['tel'].',1,"'.$Datos['nombre'].'")';
+        if ($this->conexion->query($query)) return true;
+        echo $this->conexion->error;
+        return false;
     }
 }
 ?>

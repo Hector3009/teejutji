@@ -6,17 +6,24 @@
     margin-bottom: 20px;
   }
   .wrapper {
-    width: 90%;
+    width: 100%;
     margin: auto;
     overflow:hidden;
+    position: relative;
+    float: left;
   }
   header {
     background: rgb(9, 83, 219);
     width: 100%;
     position: fixed;
     z-index: 10;
+   /* opacity: .5;*/
   }
-  
+  .uno{
+    width: 90%;
+
+  }
+
   nav {
    /*float: left; /* Desplazamos el nav hacia la izquierda */
   }
@@ -56,3 +63,12 @@
   .contenedor_de_articulos{
     display: flex;
   }
+  .alinear{
+    position: relative;
+    float:right;
+    width: 10%;
+    margin-top: 0px;
+  }
+  
+  
+    
