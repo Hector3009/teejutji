@@ -49,7 +49,8 @@ session_start();
                     <label id="msj_error3" style="display:none;color:red">Campo vacio</label>
                 </div>
                 <div class="form-group">
-                    <input class="input" type="tel" name="tel" id="tel" placeholder="Telefono">
+                    <input class="input form-control" type="number" name="tel" id="tel" placeholder="Telefono">
+                    <input  type="number" class="form-control round-input" name="edad" id="edad">  
                     <label id="msj_error4" style="display:none;color:red">Campo vacio</label>
                 </div>
             </div>

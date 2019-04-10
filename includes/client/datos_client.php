@@ -5,9 +5,9 @@ $contenedor='<div class="products-slick" data-nav="#slick-nav-1">';
    foreach ($consulta as $value) {
 	   $total=$value['precio']-($value['precio']*($value['descuento']/100));
        $contenedor.='
-                                        <div class="product">
+                                        <div class="product" onclick="javascript:detalles('.$value['id'].');">
 											<div class="product-img">
-												<img src="'.$value['imagen'].'" alt="">
+												<img style="position:relative;height:200px; width:200px;justify-content:center;" src="'.$value['imagen'].'" alt="">
 												<div class="product-label">
 													<span class="sale">-'.$value['descuento'].'%</span>
 													<span class="new">NUEVO</span>
@@ -49,6 +49,7 @@ $contenedor='<div class="products-slick" data-nav="#slick-nav-1">';
 <script>
 
 function detalles(id) {
+	console.log(id);
 	$.ajax({
         url:'controlador/detalles_producto.php',
         type:'POST',

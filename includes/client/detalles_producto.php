@@ -1,5 +1,5 @@
 <?php 
-	   $total=$value['precio']-($value['precio']*($value['descuento']/100));
+	   $total=$val['precio']-($val['precio']*($val['descuento']/100));
 
 ?>
 
@@ -13,7 +13,7 @@
 						<div id="product-main-img">
 							<div class="product-preview">
                                 <?php
-                                echo '<img src="'.$value["imagen"].'" alt="">';
+                                echo '<img src="'.$val["imagen"].'" alt="">';
                                 ?>
 								
 							</div>
@@ -26,7 +26,7 @@
 						<div id="product-imgs">
 							<div class="product-preview">
                             <?php
-                                echo '<img src="'.$value["imagen"].'" alt="">';
+                                echo '<img src="'.$val["imagen"].'" alt="">';
                                 ?>
 							</div>
 						</div>
@@ -36,7 +36,7 @@
 					<!-- Product details -->
 					<div class="col-md-5">
 						<div class="product-details">
-							<h2 class="product-name"><?php echo $value["nombre"];?></h2>
+							<h2 class="product-name"><?php echo $val["nombre"];?></h2>
 							<div>
 								<div class="product-rating">
 									<i class="fa fa-star"></i>
@@ -48,10 +48,10 @@
 								<a class="review-link" href="#"></a>
 							</div>
 							<div>
-								<h3 class="product-price">$<?php echo $total;?> <del class="product-old-price">$<?php echo $value["precio"];?></del></h3>
+								<h3 class="product-price">$<?php echo $total;?> <del class="product-old-price">$<?php echo $val["precio"];?></del></h3>
 								<span class="product-available">Precio</span>
 							</div>
-							<p><?php echo $value["descripcion"];?></p>
+							<p><?php echo $val["descripcion"];?></p>
 
 							<div class="add-to-cart">
 								<div class="qty-label">
@@ -62,14 +62,14 @@
 										<span class="qty-down">-</span>
 									</div>
 								</div>
-								<button onclick='javascript:cargar_carrito(<?php echo $value["id"];?>,"<?php echo $value["imagen"];?>","<?php echo $value["nombre"];?>",<?php echo $total;?>);' class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> Añadir a la Cesta</button>
+								<button onclick='javascript:cargar_carrito(<?php echo $val["id"];?>,"<?php echo $val["imagen"];?>","<?php echo $val["nombre"];?>",<?php echo $total;?>);' class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> Añadir a la Cesta</button>
 							</div>
 
 
 
 							<ul class="product-links">
 								<li>Categoria:</li>
-								<li><a href="#"><?php echo $value["nombre_categoria"];?></a></li>
+								<li><a href="#"><?php echo $val["nombre_categoria"];?></a></li>
 
 							</ul>
 
@@ -98,7 +98,7 @@
 function cargar_carrito(id,img,nombre,precio) {
     let cantidad=$('#totall').val();
     if (cantidad!='' && cantidad>0 ) {
-		console.log('asdf');
+		console.log(id);
         $.ajax({
 					url:'controlador/agregar_carrito.php',
 					type:'POST',

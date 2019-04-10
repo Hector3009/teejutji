@@ -19,7 +19,7 @@
 								<div class="header-search">
 									<form action='#' id='buscarp'>
 										<select id='categ' name='categ' class="input-select">
-											<option value="">Todas</option>
+											<option value="0">Todas</option>
 											<option value="1">BARRO</option>
 											<option value="2">PALMA</option>
 											<option value="3">PIEDRAS</option>

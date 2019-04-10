@@ -4,9 +4,8 @@ $Datos=Array(
     'id'=>$_POST['id'],
 );
 if ($objeto=new conexion()) {
-    if ($value=$objeto->busca_producto_id($Datos)) {
+    if ($val=$objeto->busca_producto_id($Datos)) {
         $objeto->cerrar();
-        
         require_once('../includes/client/detalles_producto.php');
     }
     else{

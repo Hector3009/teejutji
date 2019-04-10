@@ -92,10 +92,18 @@ class conexion{
     function busca_producto($Datos){
         $query='';
         //se refire a cargar productos de barro
-     $query='select * from productos where(
-        ( nombre like "%'.$Datos['patron'].'%" or
-         descripcion like "%'.$Datos['patron'].'%")and(categoria='.$Datos['categoria'].')
-         )';
+     if($Datos['categoria']==0){
+        $query='select * from productos where(
+            ( nombre like "%'.$Datos['patron'].'%" or
+             descripcion like "%'.$Datos['patron'].'%")
+             )';
+     }
+     else{
+        $query='select * from productos where(
+            ( nombre like "%'.$Datos['patron'].'%" or
+             descripcion like "%'.$Datos['patron'].'%")and(categoria='.$Datos['categoria'].')
+             )';
+     }
  
      if ($consulta=$this->conexion->query($query)) { 
              if ($consulta->num_rows>0) {
@@ -128,7 +136,7 @@ class conexion{
     function busca_producto_id($Datos){
         $query='';
         //se refire a cargar productos de barro
-     $query_user='SELECT * FROM productos JOIN categorias WHERE(productos.categoria=categorias.id AND productos.id='.$Datos['id'].')';
+     $query_user='SELECT productos.nombre,productos.descripcion,productos.precio,productos.cantidad,productos.descuento,productos.id,productos.imagen,categorias.nombre_categoria FROM productos JOIN categorias WHERE(productos.categoria=categorias.id AND productos.id='.$Datos['id'].')';
  
      if ($consulta=$this->conexion->query($query_user)) {    
         if ($row=$consulta->fetch_assoc()) {

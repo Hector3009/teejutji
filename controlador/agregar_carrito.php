@@ -15,7 +15,7 @@ $Producto=array(
 
     if (isset($_SESSION['cart'])) {
         if ($band) {
-            if(isset($_SESSION['cart'][$id]) == $id) {
+            if(isset($_SESSION['cart'][$id])== $id) {
                 $_SESSION['cart'][$id]['total']+=$_POST['precio']*$_POST['cantidad'];
                 $_SESSION['cart'][$id]['cant']+=$_POST['cantidad'];
             } else { 
@@ -30,7 +30,7 @@ $Producto=array(
         
     }
 
-+
+
     $cuenta_total=0;
     $mensaje='
     <a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">

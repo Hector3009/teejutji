@@ -83,7 +83,7 @@ function cargar_data(op=1) {
 
 $('#buscarp').submit(function (event) {
 	event.preventDefault();
-	if (($('#categ').val()!='') && ($('#busca').val()!='')) {
+	//if (($('#categ').val()!='') && ($('#busca').val()!='')) {
 		let Dat=$(this).serialize();
 			$.ajax({
 					url:'controlador/buscar_producto.php',
@@ -94,10 +94,10 @@ $('#buscarp').submit(function (event) {
 						reload(); 
 					}
 			});
-	}
-	else{
+	//}
+	/*else{
 		alert('nesecita ingresar datos para poder buscar');
-	}
+	}*/
 });
 
 </script>

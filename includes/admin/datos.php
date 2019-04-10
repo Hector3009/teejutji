@@ -10,7 +10,7 @@ if (isset($consulta) && $consulta!=null) {
        echo '
                                         <div class="product">
 											<div class="product-img">
-												<img src="'.$value['imagen'].'" alt="">
+												<img style="position:relative;height:200px; width:200px;justify-content: center;" src="'.$value['imagen'].'" alt="">
 												<div class="product-label">
 													<span class="sale">-'.$value['descuento'].'%</span>
 													<span class="new">NUEVO</span>
