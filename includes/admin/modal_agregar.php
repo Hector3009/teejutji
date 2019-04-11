@@ -96,7 +96,7 @@ $('#agregar').click(function () {
     }
     else{
         $('#msj_agregar_19').hide();
-        band=true;
+       // band=true;
     }
     if ($('#nombrep').val()=='') {
         $('#msj_agregar_21').show();
@@ -104,7 +104,7 @@ $('#agregar').click(function () {
     }
     else{
         $('#msj_agregar_21').hide();
-        band=true;
+      //  band=true;
     }
     if ($('#descripcion').val()=='') {
         $('#msj_agregar_22').show();
@@ -112,31 +112,31 @@ $('#agregar').click(function () {
     }
     else{
         $('#msj_agregar_22').hide();
-        band=true;
+       // band=true;
     }
-    if ($('#precio').val()=='') {
+    if ($('#precio').val()=='' || $('#precio').val()<1) {
         $('#msj_agregar_23').show();
         band=false;
     }
     else{
         $('#msj_agregar_23').hide();
-        band=true;
+        //band=true;
     }
-    if ($('#cant').val()=='') {
+    if ($('#cant').val()=='' || $('#cant').val()<1 ) {
         $('#msj_agregar_24').show();
         band=false;
     }
     else{
         $('#msj_agregar_24').hide();
-        band=true;
+       // band=true;
     }
-    if ($('#des').val()=='') {
+    if ($('#des').val()==''|| $('#des').val()<1) {
         $('#msj_agregar_26').show();
         band=false;
     }
     else{
         $('#msj_agregar_26').hide();
-        band=true;
+       // band=true;
     }
     var Url='';
     if ($('#pe').val()==2) {
@@ -149,7 +149,7 @@ $('#agregar').click(function () {
             }
             else{
                 $('#msj_agregar_25').hide();
-                band=true;
+                //band=true;
             }
     }
 
@@ -167,6 +167,7 @@ if (band) {
             
         },
         success:function (response) {
+            //band=true;
             console.log(response);
             switch (response) {
                     case '1':
@@ -174,10 +175,10 @@ if (band) {
                         $("#error1").hide();
                         setTimeout(() => {
                             $("#exi1").hide();
-                        }, 2000);
+                        }, 1000);
                         setTimeout(() => {
                             $("#nuevo").modal('hide');
-                        }, 3000);
+                        }, 2000);
                         break;
                     default:
                     $("#exi1").hide();
