@@ -57,9 +57,9 @@
 								<div class="qty-label">
 									Cantidad
 									<div class="input-number">
-										<input id='totall' type="number">
-										<span class="qty-up">+</span>
-										<span class="qty-down">-</span>
+										<input id='totall' type="number" value=0>
+										<span onclick="javascript:$('#totall').val(parseInt($('#totall').val())+1)"class="qty-up">+</span>
+										<span onclick="javascript:$('#totall').val(parseInt($('#totall').val())-1)" class="qty-down">-</span>
 									</div>
 								</div>
 								<button onclick='javascript:cargar_carrito(<?php echo $val["id"];?>,"<?php echo $val["imagen"];?>","<?php echo $val["nombre"];?>",<?php echo $total;?>);' class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> Añadir a la Cesta</button>
@@ -110,6 +110,10 @@ function cargar_carrito(id,img,nombre,precio) {
                         img:img
                     },
 					success:function (msj) {
+						$("#cmp").show();
+						setTimeout(() => {
+                            $("#cmp").hide();
+                        }, 2000);
 						$('#carritoo').html('');  
 						$('#carritoo').html(msj);  
 						console.log(msj);
@@ -119,6 +123,13 @@ function cargar_carrito(id,img,nombre,precio) {
     else{
         alert('necesita Agregar la menos 1 Producto');
     }
+}
+function mas(val) {
+	if (val==1) {
+		
+	} else {
+		$('#totall').val()=$('#totall').val()-1
+	}
 }
 
 </script>

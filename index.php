@@ -45,6 +45,9 @@
 			<!-- MAIN HEADER -->
 			<div id="main_header">
 			</div>
+				<div id="cmp" class="alert alert-success" style="display:none" role="alert">
+					<strong>SE HA AGREGADO UN NUEVO PRODUCTO A SU CANASTA</strong>
+				</div>
 			<!-- /MAIN HEADER -->
 		</header>
 		<!-- /HEADER -->

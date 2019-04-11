@@ -1,5 +1,6 @@
 
 <?php
+$contador=0;
 if (isset($consulta) && $consulta!=null) {
 $contenedor='<div class="products-slick" data-nav="#slick-nav-1">';
    foreach ($consulta as $value) {
@@ -36,7 +37,21 @@ $contenedor='<div class="products-slick" data-nav="#slick-nav-1">';
 												</div>
 											</div>
 										</div>
-       ';
+	   ';
+	   $contador++;
+	   if ($contador>2) {
+		$contenedor.='</div>
+		<div id="slick-nav-1" class="products-slick-nav"></div>
+		</div>
+		<br>
+		<br>
+		<br>
+		
+		<div id="tab1" class="tab-pane active">
+		<div class="products-slick" data-nav="#slick-nav-1">
+	 ';
+	 $contador=0;
+	   }
    }
    echo $contenedor.'</div>
    <div id="slick-nav-1" class="products-slick-nav"></div>
