@@ -35,7 +35,7 @@ include('modal_agregar.php');
 						<div class="row">
 							<div class="products-tabs">
 								<!-- tab -->
-								<button type='button' data-opp=1 class='btn btn-primary' data-toggle="modal" data-target="#nuevo">Agregar Nuevo</button>
+								<button type='button' data-opp=1 class='btn btn-primary' data-toggle="modal" data-target="#nuevo">Agregar Nuevo Producto</button>
 		
 								<div id="tab1" class="tab-pane active">
 			

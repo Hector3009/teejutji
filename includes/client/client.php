@@ -99,7 +99,7 @@ $('#buscarp').submit(function (event) {
 			});
 	}
 	else{
-		alert('nesecita ingresar datos para poder buscar');
+		alert('Nesecitas ingresar datos para poder buscar  :) ');
 	}
 });
 function pagar() {

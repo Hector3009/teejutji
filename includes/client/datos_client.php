@@ -26,14 +26,14 @@ $contenedor='<div class="products-slick" data-nav="#slick-nav-1">';
 													<i class="fa fa-star"></i>
 												</div>
 												<div class="product-btns">
-													<button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
-													<button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">add to compare</span></button>
-													<button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">quick view</span></button>
+													<button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">Añadir al Carrito</span></button>
+													<button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">Comprar</span></button>
+													<button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">Vista Rapida</span></button>
 												</div>
 											</div>
 											<div class="add-to-cart">
 												<div class="btn-group-sm">
-												<button class="add-to-cart-btn" onclick="javascript:detalles('.$value['id'].');"><i class="fa fa-shopping-cart"></i>Añadir a la Cesta</button>
+												<button class="add-to-cart-btn" onclick="javascript:detalles('.$value['id'].');"><i class="fa fa-shopping-cart"></i>Añadir al Carrito</button>
 												</div>
 											</div>
 										</div>

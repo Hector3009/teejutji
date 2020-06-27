@@ -35,7 +35,7 @@ $Producto=array(
     $mensaje='
     <a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
         <i class="fa fa-shopping-cart"></i>
-        <span>Your Cart</span>
+        <span>Carrito</span>
         <div class="qty">'.sizeof($_SESSION['cart']).'</div>
     </a>
     <div class="cart-dropdown">

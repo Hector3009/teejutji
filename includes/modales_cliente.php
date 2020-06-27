@@ -10,15 +10,15 @@
             <div class="modal-body">
             <div id="erro" class="alert alert-danger fade in" style="display:none" >
                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                            <span class="sr-only">Close</span>
+                            <span class="sr-only">Cerrar</span>
                         </button>
-                        <strong>Error</strong> Credenciales Incorrectos
+                        <strong>Error</strong> Datos Incorrectos
                     </div>
                     <div id="exit" class="alert alert-success fade in" style="display:none" >
                         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                             <span class="sr-only">Close</span>
                         </button>
-                        <strong>Sucess</strong> se Recargara la Pagina
+                        <strong></strong> Se Recargara la Pagina
                 </div>
                     <div class="form-group " id="us"class="has-success" >
                         <label class="control-label" for="title">Usuario</label>
@@ -56,13 +56,13 @@
                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                             <span class="sr-only">Close</span>
                         </button>
-                        <strong>Error</strong> no se han guardaron los datos
+                        <strong>Error</strong> No se han guardaron los datos
                     </div>
                     <div id="exi" class="alert alert-success fade in" style="display:none" >
                         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                             <span class="sr-only">Close</span>
                         </button>
-                        <strong>Gardado</strong> se han guardaron los datos
+                        <strong>Gardado</strong> Se han guardaron los datos
                 </div>
                     <div class="form-group " id="nombree"class="has-success" >
                         <label class="control-label" for="title">Nombre Completo</label>
@@ -72,20 +72,20 @@
                     </div>
           
                     <div class="form-group " id="edadd" class="has-success" >
-                        <label class="control-label" for="title">edad</label>
+                        <label class="control-label" for="title">Edad</label>
                         <input  type="number" class="form-control round-input" name="edad" id="edad">  
                         <label id="msj_agregar_2" style="display:none;color:red">Campo vacio</label>
                             
                     </div>
                     <div class="form-group " id="correoo"class="has-success" >
-                        <label class="control-label" for="title">correo</label>
+                        <label class="control-label" for="title">Correo</label>
                         <input  type="email" class="form-control round-input" name="correo" id="correo">  
                         <label id="msj_agregar_3" style="display:none;color:red">Campo vacio/correo invalido</label>
                             
                     </div>
           
                     <div class="form-group " id="userr" class="has-success" >
-                        <label class="control-label" for="title">usuario</label>
+                        <label class="control-label" for="title">Usuario</label>
                         <input  type="text" class="form-control round-input" name="user" id="user">  
                         <label id="msj_agregar_4" style="display:none;color:red">Campo vacio</label>   
                     </div>

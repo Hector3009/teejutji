@@ -4,7 +4,7 @@ class conexion{
     private $server="localhost";
     private $user="root";
     private $pass="";
-    private $database='sistema';
+    private $database='teejutji';
 
     function __construct(){
         $this->conexion=@new mysqli($this->server,$this->user,$this->pass,$this->database); 

@@ -15,15 +15,15 @@
             <div class="modal-body">
                     <div id="error1" class="alert alert-danger fade in" style="display:none" >
                         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                <span class="sr-only">Close</span>
+                                <span class="sr-only">Cerrar</span>
                             </button>
-                            <strong>Error</strong> no se han guardaron los datos
+                            <strong>Error</strong> No se han guardaron los datos
                         </div>
                         <div id="exi1" class="alert alert-success fade in" style="display:none" >
                             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                <span class="sr-only">Close</span>
+                                <span class="sr-only">Cerrar</span>
                             </button>
-                            <strong>Gardado</strong> se han guardaron los datos
+                            <strong>Gardado</strong> Se han guardaron los datos
                     </div>
                 <div class="container-fluid">
 
@@ -79,8 +79,8 @@
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-warning" data-dismiss="modal">Close</button>
-                <button id='agregar' type="button" class="btn btn-primary">Save</button>
+                <button type="button" class="btn btn-warning" data-dismiss="modal">Cerrar</button>
+                <button id='agregar' type="button" class="btn btn-primary">Guardar</button>
             </div>
             </form>
         </div>

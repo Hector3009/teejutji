@@ -62,7 +62,7 @@
 										<span onclick="javascript:$('#totall').val(parseInt($('#totall').val())-1)" class="qty-down">-</span>
 									</div>
 								</div>
-								<button onclick='javascript:cargar_carrito(<?php echo $val["id"];?>,"<?php echo $val["imagen"];?>","<?php echo $val["nombre"];?>",<?php echo $total;?>);' class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> Añadir a la Cesta</button>
+								<button onclick='javascript:cargar_carrito(<?php echo $val["id"];?>,"<?php echo $val["imagen"];?>","<?php echo $val["nombre"];?>",<?php echo $total;?>);' class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> Añadir al carrito </button>
 							</div>
 
 
@@ -74,7 +74,7 @@
 							</ul>
 
 							<ul class="product-links">
-								<li>Share:</li>
+								<li>Siguinos:</li>
 								<li><a href="#"><i class="fa fa-facebook"></i></a></li>
 								<li><a href="#"><i class="fa fa-twitter"></i></a></li>
 								<li><a href="#"><i class="fa fa-google-plus"></i></a></li>
@@ -121,7 +121,7 @@ function cargar_carrito(id,img,nombre,precio) {
 			});
     }
     else{
-        alert('necesita Agregar la menos 1 Producto');
+        alert('Necesitas agregar al menos 1 producto  :( ');
     }
 }
 function mas(val) {

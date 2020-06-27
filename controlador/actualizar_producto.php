@@ -19,6 +19,6 @@ if ($objeto=new conexion()) {
     }
 }
 else{
-    echo "eror de conexion";
+    echo "Error de conexion";
 }
 ?>
